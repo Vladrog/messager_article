@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import socket from "../socket";
+import localIp from "../getIp";
 
 
 export default function AuthorizationBlock({onLogin, checkedRoom}) {
@@ -24,7 +25,7 @@ export default function AuthorizationBlock({onLogin, checkedRoom}) {
         userKey
       }
         setLoading(true);
-        await axios.post('http://26.168.100.191:9999/rooms', obj);
+        await axios.post('http://' + localIp + ':9999/rooms', obj);
         onLogin(obj);
     }
   };

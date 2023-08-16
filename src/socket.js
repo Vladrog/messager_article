@@ -1,5 +1,6 @@
 import io from "socket.io-client";
+import localIp from "./getIp";
 
-const socket = io("http://26.168.100.191:9999");
+const socket = io("http://" + localIp + ":9999");
 
 export default socket;

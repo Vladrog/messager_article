@@ -3,7 +3,8 @@ import AuthorizationBlock from "./components/authorizationBlock";
 import ChatBlock from "./components/chatBlock";
 import axios from "axios";
 import socket from "./socket";
-import crypt from "./crypt"
+import crypt from "./crypt";
+import localIp from "./getIp";
 
 let userKey;
 let roomKey;
@@ -28,7 +29,7 @@ function App() {
 
     socket.emit("ROOM:JOIN", obj);
     const { data } = await axios.get(
-      "http://26.168.100.191:9999/rooms/" + obj.roomId
+      "http://" + localIp + ":9999/rooms/" + obj.roomId
     );
 
     data.messages.forEach(element => {
