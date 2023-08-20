@@ -188,8 +188,8 @@ exports.decode = (bits, key) => { // декодирование
 
 function chaos(x, y, sym, p) { // генератор
   let mass = new Array(2);
-  mass[1] = ((1-sym)*Math.sin(Math.pow(x, 2)));
   mass[0] = sym*(Math.cos(1-p[0]*Math.pow(x, 2))+Math.pow(Math.exp(1),p[1]*Math.pow(y, 2)));
+  mass[1] = ((1-sym)*Math.sin(Math.pow(x, 2)));
   return mass;
 }
 
